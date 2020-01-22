@@ -22,3 +22,22 @@ Function takes in a network and filters nodes by degree or by community.
 
 ### get_avg_conn_from_pairwise(pairwise_conn)
 Takes in a list of dictionaries where each key is a node and each value is a list of the pairwise connectivity between the key node and all other nodes.  Function returns a dictionary of the average pairwise connectivity for each node in the network.
+
+## network.py
+
+### bipartite_to_projection(df, name, col1 = 'student', col2 = 'course', b_plot = False, l_plot = False, color_l_plot = False, induced = False):
+Takes in a pandas dataframe, constructs a bipartite network, and creates a projection network.  Communities are then detected using louvain algorithm, and communities and nodes are saved into a csv.  Attribute options allow bipartite network plot, projection plot, projection plot colored by community, and induced projection (nodes from a community grouped into one node).
+    
+### get_comms(l):
+Take in a network and get community partitions at the lowest level.  Returns a dictionary of integer labeled communities as keys and node list as values.
+    
+### measure_connectivity(G, name = '', plots = False):
+Compute various connectivity measures and print out the output - still in the works!
+        
+### measure_between_group_connectivity(induced, name = '', plots = False):
+Almost the same as measure_connectivity(), except an induced projection is fed in instead of the original projection.  Compute various connectivity measures and print out the output - still in the works!  
+        
+### measure_within_group_connectivity(partitioned, name = '', plots = False):
+Almost the same as measure_connectivity(), except a network of only a specific community is fed in instead of the original projection.  Compute various connectivity measures and print out the output - still in the works!
+
+## plotting.py
