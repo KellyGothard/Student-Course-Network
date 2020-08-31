@@ -5,7 +5,6 @@ from community import generate_dendrogram
 from community import partition_at_level
 import pandas as pd
 from networkx.algorithms import approximation as approx
-import processing as pss
 import plotting as p
 import pprint
     
@@ -14,9 +13,9 @@ def bipartite_to_projection(df, name, col1 = 'student', col2 = 'course', b_plot 
     edgelist, n1, n2 = pss.create_edgelist(df, col1, col2)
     
     n1 = sorted(n1)
-    print(n1)
+#    print(n1)
     n2 = sorted(n2)
-    print(n2)
+#    print(n2)
 
     B = nx.Graph()
     B.add_nodes_from(n1, bipartite=0)

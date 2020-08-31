@@ -52,6 +52,11 @@ def fake_student(df, major_range, course_dev, semester_n, n_classes):
     ## Generate course number
     coursenum = int(rand.uniform(majornum-course_dev,majornum+course_dev)//1)
     
+    if majornum > max(list(major_range))//3 and majornum < max(list(major_range)) - max(list(major_range))//3:
+        r = rand.random()
+        if r < 0.5:
+            coursenum = coursenum + (r*coursenum)//1
+    
     ## Generate semester number
     semnum = rand.randint(1,semester_n)
     
@@ -63,6 +68,10 @@ def fake_student(df, major_range, course_dev, semester_n, n_classes):
     for i in range(n_classes):
         ## Generate course number
         coursenum = int(rand.uniform(majornum-course_dev,majornum+course_dev)//1)
+        if majornum > max(list(major_range))//3 and majornum < max(list(major_range)) - max(list(major_range))//3:
+            r = rand.random()
+            if r < 0.5:
+                coursenum = coursenum + (r*coursenum)//1
         
         ## Check to see if student is already taking this course - try again
         prev_courses = df[df['student']==studentnum]['course'].values
